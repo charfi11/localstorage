@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    min-height: calc(100vh - 202px);
+}
+
+footer {
+    margin-top: auto;
+}
+
+.notifyjs-test-base {
+    white-space: nowrap;
+    background-color: coral;
+    border-radius: 1.5rem;
+    padding: 7px;
+    color: white;
+  }
+
+  .del {
+      cursor:pointer;
+  }
