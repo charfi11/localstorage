@@ -23,3 +23,7 @@ footer {
   .del {
       cursor:pointer;
   }
+
+  .card {
+      cursor: pointer;
+  }
