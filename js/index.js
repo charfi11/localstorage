@@ -28,11 +28,12 @@ arrCard.forEach(element => {
     localStorage.removeItem(c);
     });
     $(card).click(function(){
-        // var title = $(event.target).children();
         $('#first').val(JSON.parse(localStorage.getItem(c))[0].value);
         $('#second').val(JSON.parse(localStorage.getItem(c))[1].value);
         $('#formModal').submit(function(){
-
+        var datas = $( this ).serializeArray();
+        var keyup = c;
+        localStorage.setItem(keyup, JSON.stringify(datas));
     });
     });
 });
