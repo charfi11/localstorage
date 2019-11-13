@@ -22,7 +22,10 @@ arrCard = [card];
 arrCard.forEach(element => {
     var del = $(card).children().children()[0];
     var c = localStorage.key(i);
-    $(card).mouseenter(function(){
+    var l = $(card).children().children()[3];
+    var n = $(l).text();
+    console.log(n);
+        $(card).mouseenter(function(){
         $(del).show();
     });
     $(card).mouseleave(function(){
