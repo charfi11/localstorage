@@ -7,7 +7,9 @@ $( ".formFirst" ).submit(function(event) {
     var key = rand;
     localStorage.setItem(key, JSON.stringify(data));
     arr.push(key);
-    window.location = 'index.html';
+        var dlt = Math.random(0, 10000000); 
+     $('.affich').append(
+        '<div class=mr-3><div class=card id='+key+' style=width: 18rem; data-toggle=modal data-target=#exampleModalCenter><div class=card-body><h5 class="card-title">'+data[0].value+'</h5>'+'<p class="card-text">'+data[1].value+'</p>'+'</div></div><button class='+dlt+'>supp</button></div>');   
 });
 
 $(document).ready(function(){
@@ -26,11 +28,11 @@ arrCard.forEach(element => {
     localStorage.removeItem(c);
     });
     $(card).click(function(){
-        var l = localStorage.getItem(keyz, temp1);
-        var title = $(event.target).children();
-        $('#first').val(title[0].textContent);
-        $('#second').val(title[1].textContent);
+        // var title = $(event.target).children();
+        $('#first').val(JSON.parse(localStorage.getItem(c))[0].value);
+        $('#second').val(JSON.parse(localStorage.getItem(c))[1].value);
         $('#formModal').submit(function(){
+
     });
     });
 });
