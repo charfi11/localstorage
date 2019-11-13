@@ -25,15 +25,36 @@
         </div>
     <header class="d-flex justify-content-between">
       <button class="btn btn-warning btnmemo">créer un memo</button>
-        <div class="delete d-flex justify-content-end mt-2 mr-2"><i class="del fas fa-ban text-dark fa-2x" 
-          data-toggle="tooltip" data-placement="bottom" title="effacer tous les mémos"></i></div>
+        <div class="delete d-flex justify-content-end mt-2 mr-2"  data-toggle="modal" data-target="#exampleModal"><i class="del fas fa-ban text-dark fa-2x" 
+          data-toggle="tooltip" data-placement="bottom" title="effacer tous les mémo"></i></div>
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="d-flex justify-content-end">
+                    <button type="button" class="close mr-2 mt-2" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                  <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-exclamation-triangle fa-2x text-warning"></i></h5>
+                </div>
+                  <div class="modal-body">
+                   <h5 class="mb-3 mt-2 font-weight-bold">Etes vous sûr de vouloir supprimer tout vos mémo ?</h5>
+                   <div class="d-flex justify-content-center">
+                   <button type="button" class="btn btn-danger deleteall">Supprimer</button>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
     </header>
     <main class="d-flex flex-column align-items-center">
       <div class="mt-5 d-flex flex-column align-items-center">
-        <h1 class="mb-3">Memo@Break</h1>
+        <h1 class="mb-3 font-weight-bold">Memo@Break</h1>
         <p>Enregistrez vos passages n'importe où!</p>
       </div>
-    <form class="mb-3 mt-4 formFirst bg-dark" style="width:40%;">
+    <form class="mb-3 mt-4 formFirst" style="width:40%;">
       <label for="Champ">Date</label>
       <input class="form-control mb-2" type="date" name="champ0" value="">
       <label for="Champ">Titre</label>
