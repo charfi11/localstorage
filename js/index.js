@@ -1,4 +1,5 @@
 var arr = [];
+arr.sort();
 
 $( ".formFirst" ).submit(function(event) {
     event.preventDefault();
@@ -7,9 +8,7 @@ $( ".formFirst" ).submit(function(event) {
     var key = rand;
     localStorage.setItem(key, JSON.stringify(data));
     arr.push(key);
-        var dlt = Math.random(0, 10000000); 
-     $('.affich').append(
-        '<div class=mr-3><div class=card id='+key+' style=width: 18rem; data-toggle=modal data-target=#exampleModalCenter><div class=card-body><h5 class="card-title">'+data[0].value+'</h5>'+'<p class="card-text">'+data[1].value+'</p>'+'</div></div><button class='+dlt+'>supp</button></div>');   
+    window.location = 'index.html';
 });
 
 $(document).ready(function(){
@@ -18,18 +17,25 @@ $(document).ready(function(){
         var keyz = localStorage.key(i); 
         var dlt = Math.random(0, 10000000); 
      $('.affich').append(
-        '<div class=mr-3><div class=card id='+keyz+' style=width: 18rem; data-toggle=modal data-target=#exampleModalCenter><div class=card-body><h5 class="card-title">'+temp1[0].value+'</h5>'+'<p class="card-text">'+temp1[1].value+'</p>'+'</div></div><button class='+dlt+'>supp</button></div>');   
+        '<div class=mr-3><div class="card bg-dark" id='+keyz+' style="width: 20rem;" data-toggle=modal data-target=#exampleModalCenter><div class=card-body><h5 class="card-title text-warning">'+temp1[0].value+'</h5>'+'<h4 class="card-text text-info">'+temp1[1].value+'</h4>'+'<p class="card-text">'+temp1[2].value+'</p>'+'</div></div><button class="btn btn-warning btndel" id='+dlt+' style=width:100%;><i class="fas fa-trash"></i></button></div>');   
         var card = document.getElementById(keyz);
 arrCard = [card];
 arrCard.forEach(element => {
     var del = $(card).next()[0];
     var c = localStorage.key(i);
-    $(del).click(function(){
+    $(del).click(function(e){
+        e.preventDefault();
     localStorage.removeItem(c);
+    $(card).remove();
+    $(del).remove();
+    });
+    $(card).mouseenter(function(){
+        $(del).fadeIn('slow');
     });
     $(card).click(function(){
-        $('#first').val(JSON.parse(localStorage.getItem(c))[0].value);
-        $('#second').val(JSON.parse(localStorage.getItem(c))[1].value);
+        $('#zero').val(JSON.parse(localStorage.getItem(c))[0].value);
+        $('#first').val(JSON.parse(localStorage.getItem(c))[1].value);
+        $('#second').val(JSON.parse(localStorage.getItem(c))[2].value);
         $('#formModal').submit(function(){
         var datas = $( this ).serializeArray();
         var keyup = c;
@@ -44,4 +50,9 @@ $('.del').click(function(event){
     event.preventDefault();
     localStorage.clear();
     window.location = 'index.html';   
+});
+
+
+$('.btnmemo').click(function(){
+$('form').slideToggle('slow');
 });
